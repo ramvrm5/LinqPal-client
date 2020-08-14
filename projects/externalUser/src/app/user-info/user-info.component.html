@@ -1,0 +1,93 @@
+<div class="container-fluid">
+
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+        <p style="color: white"> Loading... </p>
+        </ngx-spinner>
+
+        <div class="row vh-100 vw-100 bg-dark align-items-center">
+            <div class="col-xl-6 col-lg-6 h-75 bg-light mx-auto pt-1">
+                <form *ngIf="!usrCretedBollean" [formGroup]="data" (ngSubmit)="submit()">
+                    <h3 class="mt-2 text-center">ADD USER</h3>
+                    <div class="form-group row mt-3 mb-3">
+                        <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="first_name" [ngClass]="classForValidation('first_name')" name="first_name" class="form-control "
+                                id="first_name" placeholder="First name here">
+                            <div *ngIf="submitted && h.first_name.errors" class="invalid-feedback">
+                                <div *ngIf="h.first_name.errors.required">First name is required</div>
+                            </div>
+                            <div *ngIf="submitted && !h.first_name.errors" class="valid-feedback">
+                                <div>Name is correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="last_name" class="col-sm-2 col-form-label">Last name</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="last_name" [ngClass]="classForValidation('last_name')" name="last_name" class="form-control "
+                                id="last_name" placeholder="Template name here">
+                            <div *ngIf="submitted && h.last_name.errors" class="invalid-feedback">
+                                <div *ngIf="h.last_name.errors.required">Last name is required</div>
+                            </div>
+                            <div *ngIf="submitted && !h.last_name.errors" class="valid-feedback">
+                                <div>Last name is correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="telephone_number" class="col-sm-2 col-form-label">Telephone number</label>
+                        <div class="col-sm-10">
+                            <input type="number" formControlName="telephone_number" [ngClass]="classForValidation('telephone_number')" name="telephone_number"
+                                class="form-control " id="telephone_number" placeholder="Telephone number">
+                            <div *ngIf="submitted && h.telephone_number.errors" class="invalid-feedback">
+                                <div *ngIf="h.telephone_number.errors.required">Telephone number is required</div>
+                                <div *ngIf="h.telephone_number.errors.pattern">match valid length i.e "10"</div>
+                            </div>
+                            <div *ngIf="submitted && !h.telephone_number.errors" class="valid-feedback">
+                                <div>Telephone number is correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="address" class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" rows="2" formControlName="address" [ngClass]="classForValidation('address')" name="address" class="form-control "
+                                id="address" placeholder="Address here"></textarea>
+                            <div *ngIf="submitted && h.address.errors" class="invalid-feedback">
+                                <div *ngIf="h.address.errors.required">Address is required</div>
+                            </div>
+                            <div *ngIf="submitted && !h.address.errors" class="valid-feedback">
+                                <div>Address is correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="ssn_number" class="col-sm-2 col-form-label">SSN Number</label>
+                        <div class="col-sm-10">
+                            <input type="number" formControlName="ssn_number" [ngClass]="classForValidation('ssn_number')" name="ssn_number" class="form-control "
+                                id="ssn_number" placeholder="ssn number here">
+                            <div *ngIf="submitted && h.ssn_number.errors" class="invalid-feedback">
+                                <div *ngIf="h.ssn_number.errors.required">ssn number is required</div>
+                            </div>
+                            <div *ngIf="submitted && !h.ssn_number.errors" class="valid-feedback">
+                                <div>ssn number is correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary w-25">Add User</button>
+                        </div>
+                    </div>
+                </form>
+                <div *ngIf="usrCretedBollean" class="row pt-4">
+                    <div class="col-2"></div>
+                    <div class="col-8 text-center mt-5">
+                        <i class="fa fa-check-circle iconCheckCircle" aria-hidden="true"></i>
+                        <h2 class="passwordText">User added!</h2>
+                        <h5 class="yourpasswordText">User has been added successfully !</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
